@@ -1,8 +1,9 @@
-from collections import Counter
 import csv
 import json
 
-with open('files/prices.json', encoding='utf8') as prices, open('files/quarter1.csv', encoding='utf8') as q1, open('files/quarter2.csv', encoding='utf8') as q2, open('files/quarter3.csv', encoding='utf8') as q3, open('files/quarter4.csv', encoding='utf8') as q4:
+with open('files/prices.json', encoding='utf8') as prices, open('files/quarter1.csv', encoding='utf8') as q1, open(
+        'files/quarter2.csv', encoding='utf8') as q2, open('files/quarter3.csv', encoding='utf8') as q3, open(
+        'files/quarter4.csv', encoding='utf8') as q4:
     prices = json.load(prices)
     q1 = list(csv.reader(q1))
     del q1[0]
@@ -23,5 +24,5 @@ with open('files/prices.json', encoding='utf8') as prices, open('files/quarter1.
         d[i[0]] += int(i[1]) + int(i[2]) + int(i[3])
     su = 0
     for i, j in d.items():
-        su += prices[i]*j
+        su += prices[i] * j
     print(su)
