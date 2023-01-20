@@ -1,5 +1,4 @@
 from collections import Counter
-from sys import stdin
 
 def count_items(list_of_items):
     count_all = Counter(list_of_items)
