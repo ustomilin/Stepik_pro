@@ -3,7 +3,7 @@ from collections import Counter
 
 def count_sym(file_name):
     with open(file_name, encoding='utf8') as f:
-        f = f.read().lower()
+        f = f.read().lower()  # по условию задачи, считаем символы в нижнем регистре
         count = Counter(f)
         for sym, kol in sorted(count.items()):
             if sym.isalpha():
