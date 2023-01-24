@@ -1,18 +1,19 @@
 from collections import ChainMap
 
 
-def deep_update(chainmap: ChainMap, key, value):
-    x = chainmap.maps
-    count = 0
-    for i in range(len(x)):
-        if key in x[i]:
-            x[i][key] = value
-            count += 1
-    if count == 0:
-        chainmap[key] = value
-
+def get_value(chainmap: ChainMap, key, from_left = True):
+    if from_left:
+        try:
+            return chainmap[key]
+        except KeyError:
+            return None
+    else:
+        chainmap.maps.reverse()
+        try:
+            return chainmap[key]
+        except KeyError:
+            return None
 
 chainmap = ChainMap({'name': 'Arthur'}, {'name': 'Timur'})
-deep_update(chainmap, 'age', 20)
 
-print(chainmap)
+print(get_value(chainmap, 'age'))
