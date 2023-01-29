@@ -6,4 +6,5 @@ def get_fast_pow(a, n):
     else:
         return a * get_fast_pow(a, n - 1)
 
-print(get_fast_pow(10, 20))
+
+print(get_fast_pow(10, 10000))
